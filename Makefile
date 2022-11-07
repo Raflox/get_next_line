@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rafilipe <rafilipe@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: rafilipe <rafilipe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/06 17:27:49 by rafilipe          #+#    #+#              #
-#    Updated: 2022/11/06 17:29:19 by rafilipe         ###   ########.fr        #
+#    Updated: 2022/11/07 11:30:52 by rafilipe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRC = get_next_line.c get_next_line_utils.c
+SRC = $(wildcard *.c)
 
 OBJ = $(SRC:.c=.o)
 
