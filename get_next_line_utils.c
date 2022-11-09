@@ -6,7 +6,7 @@
 /*   By: rafilipe <rafilipe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:01:36 by rafilipe          #+#    #+#             */
-/*   Updated: 2022/11/07 14:57:26 by rafilipe         ###   ########.fr       */
+/*   Updated: 2022/11/09 15:49:32 by rafilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,46 @@ char	*ft_strdup(const char *str)
 		i++;
 	}
 	return (out);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i++;
+	}
+	if (s[i] == (char)c)
+		return ((char *)(s + i));
+	return (NULL);
+}
+
+char	*ft_substr(char const *s, size_t start, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	j = 0;
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (len < ft_strlen((char *)s))
+		str = malloc((len + 1) * sizeof(char));
+	if (len >= ft_strlen((char *)s))
+		str = malloc((ft_strlen((char *)s) + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (s[i])
+	{
+		if (i >= start && j < len)
+			str[j++] = s[i];
+		i++;
+	}
+	str[j] = '\0';
+	return (str);
 }

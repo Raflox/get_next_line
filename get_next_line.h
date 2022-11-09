@@ -6,7 +6,7 @@
 /*   By: rafilipe <rafilipe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:00:27 by rafilipe          #+#    #+#             */
-/*   Updated: 2022/11/07 11:29:00 by rafilipe         ###   ########.fr       */
+/*   Updated: 2022/11/09 15:49:36 by rafilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 char	*get_next_line(int fd);
 char	*get_next_line_copy(int fd);
 size_t	ft_strlen(const char *str);
-void	*ft_calloc(size_t number, size_t size);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *str);
+char	*ft_strchr(const char *s, int c);
+char	*ft_substr(char const *s, size_t start, size_t len);
+
 
 #endif
