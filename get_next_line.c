@@ -6,7 +6,7 @@
 /*   By: rafilipe <rafilipe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:04:51 by rafilipe          #+#    #+#             */
-/*   Updated: 2022/11/09 15:59:25 by rafilipe         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:13:54 by rafilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,35 @@ int	ft_linelen(char *str)
 	int	len;
 
 	idx = 0;
-	len = 0;
+	len = 1;
 	while (str[idx++] != '\n')
 		len++;
 	return (len);
+}
+static char	*read_line(int fd, char *buff, char *stack)
+{
+	int		bytes_read;
+	char	*temp;
+
+	bytes_read = 1;
+	while (bytes_read)
+	{
+		bytes_read = read(fd, buff, BUFFER_SIZE);
+		if (bytes_read == -1)
+			return (NULL);
+		if (bytes_read == 0)
+			break ;
+		buff[bytes_read] = '\0';
+		if (!stack)
+			stack = ft_strdup("");
+		temp = stack;
+		stack = ft_strjoin(temp, buff);
+		free(temp);
+		temp = NULL;
+		if (ft_strchr(stack, '\n'))
+			break ;
+	}
+	return (stack);
 }
 
 char	*get_next_line(int fd)
@@ -29,28 +54,11 @@ char	*get_next_line(int fd)
 	char			buff[BUFFER_SIZE + 1];
 	static char		*stack;
 	char			*line;
-	char			*temp;
-	int				bytes_read;
-	
-	bytes_read = 1;
+	//char			*temp;
+	//int				bytes_read;
+
 	// bytes_read = read(fd, buff, BUFFER_SIZE);
-	line = ft_strdup("");
-	while (bytes_read)
-	{
-		if ((bytes_read = read(fd, buff, BUFFER_SIZE)) <= 0)
-			return (NULL);
-		buff[bytes_read] = '\0';
-		if (!stack)
-			stack = ft_strdup("");
-		temp = ft_strjoin(stack, buff);
-		free(stack);
-		stack = temp;
-		if (ft_strchr(stack, '\n'))
-		{
-			printf("-%s\n", stack);
-			line = ft_substr(stack, 0, ft_linelen(stack));
-			break ;
-		}
-	}
+	line = read_line(fd, buff, stack);
 	return (line);
 }
+

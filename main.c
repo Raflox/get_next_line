@@ -12,7 +12,7 @@ int main()
 		write(1, err, ft_strlen(err));
 
 	str = get_next_line(fd);
-	printf("%s", str);
-
+		printf("-%s\n", str);
+		free (str);
 	close(fd);
 }
