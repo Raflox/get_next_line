@@ -14,5 +14,26 @@ int main()
 	str = get_next_line(fd);
 		printf("-%s\n", str);
 		free (str);
+	str = get_next_line(fd);
+		printf("-%s\n", str);
+		free (str);
+	str = get_next_line(fd);
+		printf("-%s\n", str);
+		free (str);
+	str = get_next_line(fd);
+		printf("-%s\n", str);
+		free (str);
+	str = get_next_line(fd);
+		printf("-%s\n", str);
+		free (str);
+/* 	str = get_next_line(fd);
+		printf("-%s\n", str);
+		free (str); */
+
+/* 	while (str = get_next_line(fd))
+	{
+		printf("%s\n", str);
+		free(str);
+	} */
 	close(fd);
 }
