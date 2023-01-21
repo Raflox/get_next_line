@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafilipe <rafilipe@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 16:00:27 by rafilipe          #+#    #+#             */
-/*   Updated: 2022/11/24 13:35:20 by rafilipe         ###   ########.fr       */
+/*   Created: 2022/12/25 12:29:59 by rafilipe          #+#    #+#             */
+/*   Updated: 2023/01/21 17:08:51 by rafilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,14 @@
 # endif
 
 # include <stdio.h>
-# include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include <fcntl.h>
 # include <stdint.h>
 
 char	*get_next_line(int fd);
-char	*get_next_line_copy(int fd);
 size_t	ft_strlen(const char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strdup(const char *str);
-char	*ft_strchr(const char *s, int c);
-char	*ft_substr(char const *s, size_t start, size_t len);
-
+char	*ft_join(char *line, char *stash);
+int		ft_nextclean(char *stash);
 
 #endif
