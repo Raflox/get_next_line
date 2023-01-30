@@ -6,7 +6,7 @@
 /*   By: rafilipe <rafilipe@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 12:29:53 by rafilipe          #+#    #+#             */
-/*   Updated: 2023/01/21 19:16:48 by rafilipe         ###   ########.fr       */
+/*   Updated: 2023/01/30 22:55:12 by rafilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ char	*get_next_line(int fd)
 {
 	static char	stash[BUFFER_SIZE + 1];
 	char		*line;
-	size_t		i;
-
+	int 		i;
+	
 	i = 0;
 	if (read(fd, 0, 0) < 0 || BUFFER_SIZE < 1)
 	{

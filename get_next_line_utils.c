@@ -6,7 +6,7 @@
 /*   By: rafilipe <rafilipe@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:26:52 by rafilipe          #+#    #+#             */
-/*   Updated: 2023/01/21 19:18:32 by rafilipe         ###   ########.fr       */
+/*   Updated: 2023/01/30 22:48:19 by rafilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,32 @@ char	*ft_join(char *line, char *stash)
 	return (ret);
 }
 
-int	ft_nextclean(char *stash)
+int ft_nextclean(char *stash)
 {
-	int	i;
-	int	j;
-	int	newline_flag;
+    int nl_flag = 0;
+    int i;
+	int j;
 
 	i = 0;
 	j = 0;
-	newline_flag = 0;
-	while (stash[i])
+
+    while (stash[i])
+    {
+        if (stash[i] == '\n')
+        {
+            nl_flag = 1;
+			stash[i++] = 0;
+            break;
+        }
+		stash[i++] = 0;
+    }
+   	if (nl_flag)
 	{
-		if (newline_flag)
+		while (stash[i])
+		{
 			stash[j++] = stash[i];
-		else if (stash[i] == '\n')
-			newline_flag = 1;
-		stash[i++] = '\0';
+			stash[i++] = 0;
+		}
 	}
-	return (newline_flag);
+	return (nl_flag);
 }
